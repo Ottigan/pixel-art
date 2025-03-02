@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pixel Art Scaling</title>
+    </head>
+    <style>
+        * {
+            image-rendering: pixelated;
+        }
+
+        img,
+        canvas {
+            border: solid 1px black;
+        }
+
+        canvas {
+            background-color: #ffbcbc;
+        }
+
+        .obj {
+            margin: 2px;
+        }
+    </style>
+    <body style="font-size: 2px; scale: 3; transform-origin: top left">
+        <div style="display: flex">
+            <div class="obj">
+                <p>Original</p>
+                <img src="./src/assets/original.png" alt="" />
+            </div>
+            <div class="obj">
+                <p>Akraken lossless 85%</p>
+                <img src="./src/assets/original-85.webp" alt="" />
+            </div>
+            <div class="obj">
+                <p>Akraken lossy 85%</p>
+                <img src="./src/assets/original-lossy-85.webp" alt="" />
+            </div>
+        </div>
+        <div style="display: flex">
+            <div class="obj">
+                <p>Power of Two</p>
+                <canvas id="two" width="128" height="128" id="canvas"></canvas>
+            </div>
+            <div class="obj">
+                <p>drawImage scale</p>
+                <canvas id="drawImage" width="128" height="128" id="canvas"></canvas>
+            </div>
+            <div class="obj">
+                <p>Offscreen scale</p>
+                <canvas id="offscreen" width="128" height="128" id="canvas"></canvas>
+            </div>
+            <div class="obj" style="image-rendering: auto">
+                <p>Smooth scale</p>
+                <canvas id="smooth" width="128" height="128" id="canvas"></canvas>
+            </div>
+            <div class="obj">
+                <p>Downsample</p>
+                <canvas id="downsample" width="128" height="128" id="canvas"></canvas>
+            </div>
+        </div>
+        <div style="display: flex">
+            <div class="obj">
+                <p>Full Pixels 1:1</p>
+                <img src="./src/assets/full-pixels.png" alt="" />
+            </div>
+            <div class="obj">
+                <p>Fractional Pixels 1:1</p>
+                <img src="./src/assets/fractional.png" alt="" />
+            </div>
+        </div>
+        <div style="display: flex">
+            <div class="obj">
+                <p>Scaled IMG</p>
+                <img src="./src/assets/original.png" alt="" width="52" />
+            </div>
+            <div class="obj">
+                <p>Low Resolution</p>
+                <img src="./src/assets/small.png" alt="" />
+            </div>
+        </div>
+        <script type="module" src="/src/main.js"></script>
+    </body>
+</html>
